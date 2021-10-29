@@ -1,0 +1,51 @@
+<div class="window-container">
+    <h1>Problem 1 - Sales taxes</h1>
+    <section>
+        <h2>Input 1</h2>
+        <div *ngFor="let product of input1">
+            <input #qty type="number" placeholder="Qty." [value]="product.qty" disabled>
+            <input type="text" [value]="getProduct(product.id).name" disabled>
+            <input type="text" placeholder="Price" [value]="getProduct(product.id).price" disabled>
+        </div>
+        <button (click)="printReceipt(input1,'result-output-1')">Print</button>
+        <div id="result-output-1"></div>
+    </section>
+
+    <section>
+        <h2>Input 2</h2>
+        <div *ngFor="let product of input2">
+            <input #qty type="number" placeholder="Qty." [value]="product.qty" disabled>
+            <input type="text" [value]="getProduct(product.id).name" disabled>
+            <input type="text" placeholder="Price" [value]="getProduct(product.id).price" disabled>
+        </div>
+        <button (click)="printReceipt(input2,'result-output-2')">Print</button>
+        <div id="result-output-2"></div>
+    </section>
+
+    <section>
+        <h2>Input 3</h2>
+        <div *ngFor="let product of input3">
+            <input #qty type="number" placeholder="Qty." [value]="product.qty" disabled>
+            <input type="text" [value]="getProduct(product.id).name" disabled>
+            <input type="text" placeholder="Price" [value]="getProduct(product.id).price" disabled>
+        </div>
+        <button (click)="printReceipt(input3,'result-output-3')">Print</button>
+        <div id="result-output-3"></div>
+    </section>
+
+    <section>
+        <h2>Custom input</h2>
+        <button (click)="addProduct()">Add product</button>
+        <div *ngFor="let product of customInput;let i = index">
+            <input #qty type="number" placeholder="Qty." [value]="product.qty" (change)="updateQty(qty.value,i)">
+            <select #selected name="products" (change)="updateSelection(selected.value,i)" placeholder="Select Item">
+                <option value="">--Please choose an option--</option>
+                <option *ngFor="let product_ of productsList;let c = index" [value]="product_.id">{{product_.name}}</option>
+            </select>
+            <input type="text" placeholder="Price" [value]="getProduct(product.id).price" disabled>
+        </div>
+        <button (click)="printReceipt(customInput,'result-output-custom')">Print</button>
+        <div id="result-output-custom"></div>
+    </section>
+
+</div>
