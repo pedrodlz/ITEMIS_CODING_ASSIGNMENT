@@ -1,0 +1,57 @@
+{
+    "chocolate_bar":{
+        "name": "chocolate bar",
+        "price": "0.85",
+        "category": "food",
+        "imported": "false"
+    },
+    "book":{
+        "name": "book",
+        "price": "12.49",
+        "category": "books",
+        "imported": "false"
+    },
+    "music_cd":{
+        "name": "music CD",
+        "price": "14.99",
+        "category": "music",
+        "imported": "false"
+    },
+    "i_box_chocolates":{
+        "name": "imported box of chocolates",
+        "price": "10",
+        "category": "food",
+        "imported": "true"
+    },
+    "i_bottle_perfume":{
+        "name": "imported bottle of perfume",
+        "price": "47.5",
+        "category": "beauty",
+        "imported": "true"
+    },
+    "i_bottle_perfume_2":{
+        "name": "imported bottle of perfume",
+        "price": "27.99",
+        "category": "beauty",
+        "imported": "true"
+    },
+    "bottle_perfume":{
+        "name": "bottle of perfume",
+        "price": "18.99",
+        "category": "beauty",
+        "imported": "false"
+    },
+    "packet_headache_pill":{
+        "name": "packet of headache pills",
+        "price": "9.75",
+        "category": "medical",
+        "imported": "false"
+    },
+    "i_box_imported_chocolates":{
+        "name": "box of imported chocolates",
+        "price": "11.25",
+        "category": "food",
+        "imported": "true"
+    }
+    
+}
