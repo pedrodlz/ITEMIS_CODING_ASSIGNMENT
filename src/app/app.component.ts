@@ -15,7 +15,22 @@ export class AppComponent {
   exemptProducts = ["books","food","medical"]
 
   constructor(){
-    console.log(this.getProductTaxes("i_bottle_perfume_2"))
+    var input1 = [
+      {qty:1,id:"book"},
+      {qty:1,id:"music_cd"},
+      {qty:1,id:"chocolate_bar"}]
+
+    var input2 = [
+      {qty:1,id:"i_box_chocolates"},
+      {qty:1,id:"i_bottle_perfume"}]
+
+    var input3 = [
+      {qty:1,id:"i_bottle_perfume_2"},
+      {qty:1,id:"bottle_perfume"},
+      {qty:1,id:"packet_headache_pill"},
+      {qty:1,id:"i_box_imported_chocolates"}]
+
+    this.printReceipt(input2)
   }
 
   getProduct(id:any){
@@ -35,6 +50,25 @@ export class AppComponent {
     var productTax = ((tax*product.price)/100)
     var roundedProductTax = (Math.ceil(productTax*20)/20).toFixed(2);
 
-    return roundedProductTax;
+    return +roundedProductTax;
+  }
+
+  printReceipt(selectedProducts:any){
+    var salesTaxes = 0;
+    var total = 0;
+
+    selectedProducts.forEach((plainProduct:any)=>{
+      var product = this.getProduct(plainProduct.id);
+      var taxes = this.getProductTaxes(plainProduct.id);
+
+      salesTaxes += plainProduct.qty*(+taxes);
+      var productWithTaxes = (plainProduct.qty*(+product.price + taxes))
+      total += +productWithTaxes;
+
+      console.log(plainProduct.qty + " " + product.name + ": " + productWithTaxes.toFixed(2))
+    })
+
+    console.log("Sales Taxes: " + salesTaxes.toFixed(2));
+    console.log("Total: " + total.toFixed(2));
   }
 }
